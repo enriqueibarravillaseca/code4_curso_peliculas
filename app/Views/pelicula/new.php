@@ -3,9 +3,13 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Peliculas</title>
+    <title>Crear Pelicula</title>
 </head>
 <body>
-    <h1>Listado de Peliculas</h1>
+    
+    <form action="/Pelicula/create" method="post">
+    <?= view('/pelicula/_form',['op' => 'Crear']) ?>
+    </form>
+
 </body>
 </html>
