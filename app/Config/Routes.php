@@ -9,6 +9,7 @@ use CodeIgniter\Router\RouteCollection;
 
 // $routes->get('Peliculas','PeliculaController::index');
 $routes->presenter('Pelicula');
+$routes->presenter('Categoria');
 
 //               ruta             Pagina
 //$routes->get('/codeigniter4','Home::Holamundo');
