@@ -3,12 +3,12 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Crear Categoria</title>
+    <title>Crear Pelicula</title>
 </head>
 <body>
     
-    <form action="/Categoria/update/<?= $categoria['id'] ?>" method="post">
-        <?= view('/categoria/_form',['op' => 'Actualizar']) ?>
+    <form action="/dashboard/Pelicula/create" method="post">
+    <?= view('/Dashboard/pelicula/_form',['op' => 'Crear']) ?>
     </form>
 
 </body>

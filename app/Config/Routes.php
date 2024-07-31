@@ -8,8 +8,12 @@ use CodeIgniter\Router\RouteCollection;
 // $routes->get('/', 'Home::index');
 
 // $routes->get('Peliculas','PeliculaController::index');
-$routes->presenter('Pelicula');
-$routes->presenter('Categoria');
+
+$routes->group('dashboard',function ($routes){
+    
+    $routes->presenter('Pelicula',['controller' => 'Dashboard\Pelicula']);
+    $routes->presenter('Categoria', ['except' => ['show'], 'controller' => 'Dashboard\Categoria' ]); 
+});
 
 //               ruta             Pagina
 //$routes->get('/codeigniter4','Home::Holamundo');

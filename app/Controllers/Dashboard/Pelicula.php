@@ -1,7 +1,8 @@
 <?php
 
-namespace App\Controllers;
+namespace App\Controllers\Dashboard;
 
+use App\Controllers\BaseController;
 use App\Models\PeliculaModel;
 
 
@@ -10,7 +11,7 @@ class Pelicula extends BaseController{
     public function show($id){
         $peliculaModel = new PeliculaModel();
 //                  URI              Pasa como variable al view
-        echo view('/pelicula/show',['pelicula'=> $peliculaModel->find($id) ] );
+      echo view('/Dashboard/pelicula/show',['pelicula'=> $peliculaModel->find($id) ] );
         
     }
     
@@ -23,7 +24,7 @@ class Pelicula extends BaseController{
             'descripcion' => $this->request->getPost('descripcion')
         ]);
 
-        echo "Creado";
+        return redirect()->to('/dashboard/Pelicula');
         
     }
 
@@ -31,7 +32,7 @@ class Pelicula extends BaseController{
         
         $peliculaModel = new PeliculaModel();
 
-        echo view('/Pelicula/edit',[
+        echo view('/Dashboard/Pelicula/edit',[
             'pelicula' => $peliculaModel->find($id)
         ]);
     }
@@ -44,7 +45,7 @@ class Pelicula extends BaseController{
             'titulo' => $this->request->getPost('titulo'),
             'descripcion' => $this->request->getPost('descripcion')
         ]);
-        echo 'Actualizado';
+        return redirect()->to('/dashboard/Pelicula');
     }
 
     public function delete($id){
@@ -52,14 +53,14 @@ class Pelicula extends BaseController{
 
         $peliculaModel->delete($id);
 
-        echo "Borrado";
+        return redirect()->back();
 
     }
 
 
     public function new(){
 
-        echo view('/pelicula/new',[
+        echo view('/Dashboard/pelicula/new',[
             'pelicula' => [
                 'titulo' => '',
                 'descripcion' => ''
@@ -73,7 +74,7 @@ class Pelicula extends BaseController{
     {
         $peliculaModel = new PeliculaModel();
 
-            echo view('pelicula/index',['peliculas' => $peliculaModel->findAll()]);
+            echo view('/Dashboard/pelicula/index',['peliculas' => $peliculaModel->findAll()]);
     
     }
 

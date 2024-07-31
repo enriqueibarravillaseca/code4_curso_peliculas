@@ -9,7 +9,7 @@
     
     <h1>Listado de Categorias</h1>
 
-    <a href="/Categoria/new">Crear</a>
+    <a href="/dashboard/Categoria/new">Crear</a>
     <table>
         <tr>
             <th>
@@ -27,9 +27,9 @@
                 <td><?=$value['id'] ?></td>
                     <td><?=$value['titulo'] ?></td>
                     <td>
-                        <a href="/Categoria/show/<?= $value['id'] ?>">Show</a>
-                        <a href="/Categoria/edit/<?= $value['id'] ?>">Edit</a>
-                        <form action="/Categoria/delete/<?= $value['id'] ?>" method="post">
+                        <a href="/dashboard/Categoria/show/<?= $value['id'] ?>">Show</a>
+                        <a href="/dashboard/Categoria/edit/<?= $value['id'] ?>">Edit</a>
+                        <form action="/dashboard/Categoria/delete/<?= $value['id'] ?>" method="post">
                             <button type="submit">
                             Borrar
                             </button>

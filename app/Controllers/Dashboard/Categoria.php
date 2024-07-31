@@ -1,8 +1,9 @@
 <?php
 
 
-namespace App\Controllers;
+namespace App\Controllers\Dashboard;
 
+use App\Controllers\BaseController;
 use App\Models\CategoriaModel;
 
 
@@ -14,14 +15,14 @@ class Categoria extends BaseController{
         $categoriaModel = new CategoriaModel;
 
         
-        echo view('/categoria/index', ['categorias' => $categoriaModel->findAll()]);
+        echo view('/Dashboard/categoria/index', ['categorias' => $categoriaModel->findAll()]);
 
     }
 
     function show($id){
         $categoriaModel = new CategoriaModel;
 
-        echo view('/categoria/show',['categoria' =>$categoriaModel->find($id)]);
+        echo view('/Dashboard/categoria/show',['categoria' =>$categoriaModel->find($id)]);
 
     }
 
@@ -32,12 +33,12 @@ class Categoria extends BaseController{
             'titulo' => $this->request->getPost('titulo')
         ]);
 
-        echo 'Creado';
+        return redirect()->to('/dashboard/Categoria');
     }
 
     function new(){
 
-            echo view('/categoria/new',[
+            echo view('/Dashboard/categoria/new',[
                 'categoria' => ['titulo' => '']
 
             ]);
@@ -47,7 +48,7 @@ class Categoria extends BaseController{
     function edit($id){
         $categoriaModel = new CategoriaModel;
 
-        echo view('/categoria/edit',[
+        echo view('/Dashboard/categoria/edit',[
             'categoria' => $categoriaModel->find($id)
         ]);
     }
@@ -61,7 +62,7 @@ class Categoria extends BaseController{
             'titulo' => $this->request->getPost('titulo')
         
         ]);
-        echo 'Actualizado';
+        return redirect()->to('/dashboard/Categoria');
     }
 
     function delete($id){
@@ -70,7 +71,7 @@ class Categoria extends BaseController{
 
         $categoriaModel->delete($id);
 
-        echo 'Eliminado';
+        return redirect()->back();
     }
 
 };
