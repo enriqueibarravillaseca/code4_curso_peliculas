@@ -19,10 +19,21 @@ class Pelicula extends BaseController{
 
         $peliculaModel = new PeliculaModel();
 
-        $peliculaModel->insert([
-            'titulo' => trim($this->request->getPost('titulo')),
-            'descripcion' => trim($this->request->getPost('descripcion'))
-        ]);
+        if ($this->validate('peliculas')){
+             
+            $peliculaModel->insert([
+                'titulo' => trim($this->request->getPost('titulo')),
+                'descripcion' => trim($this->request->getPost('descripcion'))
+            ]);
+
+        }else{
+
+            session()->setFlashdata([
+                'validacion' => $this->validator->listErrors()
+            ]);
+            return redirect()->back()->withInput();
+            //var_dump($this->validator->listErrors());
+        }
 
         return redirect()->to('/dashboard/Pelicula')->with('mensaje','Registro creado correctamente.');
         
@@ -41,10 +52,23 @@ class Pelicula extends BaseController{
         
         $peliculaModel = new PeliculaModel();
 
-        $peliculaModel->update($id,[
-            'titulo' => trim($this->request->getPost('titulo')),
-            'descripcion' => trim($this->request->getPost('descripcion'))
-        ]);
+        if ($this->validate('peliculas')){
+             
+            $peliculaModel->update($id,[
+                'titulo' => trim($this->request->getPost('titulo')),
+                'descripcion' => trim($this->request->getPost('descripcion'))
+            ]);
+
+        }else{
+
+            session()->setFlashdata([
+                'validacion' => $this->validator->listErrors()
+            ]);
+            return redirect()->back()->withInput();
+            //var_dump($this->validator->listErrors());
+        }
+        
+      
         return redirect()->to('/dashboard/Pelicula')->with('mensaje','Registro modificado correctamente.');
     }
 
