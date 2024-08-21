@@ -20,11 +20,11 @@ class Pelicula extends BaseController{
         $peliculaModel = new PeliculaModel();
 
         $peliculaModel->insert([
-            'titulo' => $this->request->getPost('titulo'),
-            'descripcion' => $this->request->getPost('descripcion')
+            'titulo' => trim($this->request->getPost('titulo')),
+            'descripcion' => trim($this->request->getPost('descripcion'))
         ]);
 
-        return redirect()->to('/dashboard/Pelicula');
+        return redirect()->to('/dashboard/Pelicula')->with('mensaje','Registro creado correctamente.');
         
     }
 
@@ -42,10 +42,10 @@ class Pelicula extends BaseController{
         $peliculaModel = new PeliculaModel();
 
         $peliculaModel->update($id,[
-            'titulo' => $this->request->getPost('titulo'),
-            'descripcion' => $this->request->getPost('descripcion')
+            'titulo' => trim($this->request->getPost('titulo')),
+            'descripcion' => trim($this->request->getPost('descripcion'))
         ]);
-        return redirect()->to('/dashboard/Pelicula');
+        return redirect()->to('/dashboard/Pelicula')->with('mensaje','Registro modificado correctamente.');
     }
 
     public function delete($id){
@@ -53,6 +53,8 @@ class Pelicula extends BaseController{
 
         $peliculaModel->delete($id);
 
+
+        session()->setFlashdata('mensaje', 'Registro elimando correctamente.');
         return redirect()->back();
 
     }

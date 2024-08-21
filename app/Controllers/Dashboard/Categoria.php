@@ -30,7 +30,7 @@ class Categoria extends BaseController{
         $categoriaModel = new CategoriaModel;
 
         $categoriaModel->insert([
-            'titulo' => $this->request->getPost('titulo')
+            'titulo' => trim($this->request->getPost('titulo'))
         ]);
 
         return redirect()->to('/dashboard/Categoria');
@@ -59,10 +59,10 @@ class Categoria extends BaseController{
         $categoriaModel = new CategoriaModel;
 
         $categoriaModel->update($id,[
-            'titulo' => $this->request->getPost('titulo')
+            'titulo' => trim($this->request->getPost('titulo'))
         
         ]);
-        return redirect()->to('/dashboard/Categoria');
+        return redirect()->to('/dashboard/Categoria')->with('mensaje', 'Registro Modificado.');
     }
 
     function delete($id){
@@ -71,6 +71,7 @@ class Categoria extends BaseController{
 
         $categoriaModel->delete($id);
 
+        session()->setFlashdata('mensaje', 'Registro eliminado correctamente.');
         return redirect()->back();
     }
 

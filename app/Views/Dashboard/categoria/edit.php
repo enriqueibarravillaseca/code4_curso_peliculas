@@ -6,7 +6,9 @@
     <title>Crear Categoria</title>
 </head>
 <body>
-    
+
+    <?= view('helpers/_session') ?>
+
     <form action="/dashboard/Categoria/update/<?= $categoria['id'] ?>" method="post">
         <?= view('/Dashboard/categoria/_form',['op' => 'Actualizar']) ?>
     </form>
