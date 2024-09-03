@@ -4,7 +4,7 @@
     
 
 <div>
-        <h1><?= $categoria['titulo'] ?></h1>
+        <h1><?= $categoria->titulo ?></h1>
     </div>
 <?= $this->endSection(); ?>
 

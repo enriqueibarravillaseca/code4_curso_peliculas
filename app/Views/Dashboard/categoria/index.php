@@ -20,12 +20,12 @@
     </tr>
         <?php foreach ($categorias as $key => $value) : ?>
             <tr>
-            <td><?=$value['id'] ?></td>
-                <td><?=$value['titulo'] ?></td>
+            <td><?=$value->id ?></td>
+                <td><?=$value->titulo ?></td>
                 <td>
-                    <a href="/dashboard/Categoria/show/<?= $value['id'] ?>">Show</a>
-                    <a href="/dashboard/Categoria/edit/<?= $value['id'] ?>">Edit</a>
-                    <form action="/dashboard/Categoria/delete/<?= $value['id'] ?>" method="post">
+                    <a href="/dashboard/Categoria/show/<?= $value->id ?>">Show</a>
+                    <a href="/dashboard/Categoria/edit/<?= $value->id ?>">Edit</a>
+                    <form action="/dashboard/Categoria/delete/<?= $value->id ?>" method="post">
                         <button type="submit">
                         Borrar
                         </button>
@@ -37,5 +37,7 @@
 
 </table>
 
+<br>
+<a href="/logout"><button type="submit">Cerrar sesión</button></a>
 <?= $this->endSection(); ?>
    

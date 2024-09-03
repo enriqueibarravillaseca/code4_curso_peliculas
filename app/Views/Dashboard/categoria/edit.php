@@ -3,7 +3,7 @@
 <?= $this->Section('contenido') ?>
     
 
-<form action="/dashboard/Categoria/update/<?= $categoria['id'] ?>" method="post">
+<form action="/dashboard/Categoria/update/<?= $categoria->id ?>" method="post">
         <?= view('/Dashboard/categoria/_form',['op' => 'Actualizar']) ?>
     </form>
 

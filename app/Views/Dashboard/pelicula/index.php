@@ -18,12 +18,12 @@
     </tr>
         <?php foreach($peliculas as $key => $value) : ?>
             <tr>
-                <td><?= $value['titulo'] ?></td>
-                <td><?= $value['descripcion'] ?></td>
+                <td><?= $value->titulo ?></td>
+                <td><?= $value->descripcion ?></td>
                 <td>
-                    <a href="/dashboard/Pelicula/show/<?= $value['id'] ?>"> Show  </a>
-                    <a href="/dashboard/Pelicula/edit/<?= $value['id'] ?>"> Edit </a>
-                    <form action="/dashboard/Pelicula/delete/<?= $value['id']?>" method="post">
+                    <a href="/dashboard/Pelicula/show/<?= $value->id ?>"> Show  </a>
+                    <a href="/dashboard/Pelicula/edit/<?= $value->id ?>"> Edit </a>
+                    <form action="/dashboard/Pelicula/delete/<?= $value->id?>" method="post">
                         <button type="submit">
                             Borrar
                         </button>
