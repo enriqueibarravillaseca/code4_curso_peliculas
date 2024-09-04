@@ -7,6 +7,9 @@
 <table>
     <tr>
         <th>
+            ID
+        </th>
+        <th>
             Titulo
         </th>
         <th>
@@ -18,6 +21,7 @@
     </tr>
         <?php foreach($peliculas as $key => $value) : ?>
             <tr>
+                <td><?= $value->id ?></td>
                 <td><?= $value->titulo ?></td>
                 <td><?= $value->descripcion ?></td>
                 <td>
